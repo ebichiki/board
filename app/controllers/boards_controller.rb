@@ -13,7 +13,18 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
-  end 
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+
+    redirect_to board
+  end
 
   private
 
